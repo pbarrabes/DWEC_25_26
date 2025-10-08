@@ -254,3 +254,57 @@ const array=["perro","gato","caballo","perro","caballo"];
 const arrayAset= new Set(array);
 const arraySinDuplicados= Array.from(arrayAset);
 console.log(arraySinDuplicados);
+
+/* 26 Usando el siguiente array que contiene una lista de nombres de países vamos a crear una serie de funciones para realizar diferentes operaciones sobre ese array. 
+const paises = ["México", "Japón", "Italia", "Australia", "Brasil", "Canadá", "Francia", "Alemania", "India", "Argentina", "España", "China", "Sudáfrica", "Rusia", "Corea del Sur", "Reino Unido", "Estados Unidos", "Indonesia", "Egipto", "Turquía"];
+Función mostrarArray. Nos muestra en el documento HTML el número de elementos del array y a continuación el contenido del array en una lista numerada (ol)
+Función mostrarArrayAlreves. Igual que la anterior pero antes de mostrarlo lo ordena en sentido inverso. El array queda modificado.
+Función añadirElemento. Nos debe pedir un elemento y preguntarnos si lo queremos añadir al principio, al final o en una posición concreta. Después lo añadimos en dicha posición y lo mostramos con la función mostrarArray.
+Función eliminarElementoPosicion. La función debe dar la opción de eliminar al principio, al final o en una posición dada por el usuario. Después mostramos el array modificado con la función mostrarArray
+Función buscarPais. La función nos devuelve la posición de una país, o -1 si no lo encuentra.
+Función añadirPais. La función nos comprueba si un país que nos pasa el usuario existe y en caso de que no exista lo inserta al final. Si existe lo indica con un mensaje indicando la posición. La función devuelve la posición en la que está el país, o la posición en la que lo ha insertado.
+Función eliminar Pais. La función elimina un país que le pasamos como parámetro. Nos indica la posición en la que lo ha encontrado y borrado. La función devuelve la posición o -1 si no lo ha podido borrar. El array no debe quedar con espacios vacíos tras la eliminación*/
+
+const paises = ["México", "Japón", "Italia", "Australia", "Brasil", "Canadá", "Francia", "Alemania", "India", "Argentina", "España", "China", "Sudáfrica", "Rusia", "Corea del Sur", "Reino Unido", "Estados Unidos", "Indonesia", "Egipto", "Turquía"];
+function mostrarArray(array){
+
+    document.write(`<p>El array  tiene ${array.length} elementos</p><ol>`);
+    array.forEach(element => {
+        document.write(`<li>${element}`)
+    });
+    document.write("</ol>")
+} 
+mostrarArray(paises);
+mostrarArray(paises.reverse())
+
+function añadirElemento(array){
+    let posicion=prompt("Dime la posicion en la que lo deseas añadir (empezando por 0)");
+    let elemento=prompt("Dime el elmento a añadir");
+    array.splice(posicion,0,elemento)
+    mostrarArray(array);//Descomentar la funcion
+}
+añadirElemento(paises); 
+
+function añadirPais(array){
+    let pais=prompt("Dime un pais");
+    let posicion=array.indexOf(pais);
+    if(posicion==-1){
+        array.push(pais);
+        document.write(`El pais ${pais} ha sido añadido al final del array`);
+    } else{
+        document.write(`El pais ${pais} ya estaba en la posicion ${posicion}`);
+    }
+}
+    mostrarArray(array);
+
+    function eliminarPais(array){
+    let pais=prompt("Dime un pais a eliminar");
+    let posicion=array.indexOf(pais);
+    if(posicion==-1){
+        document.write(`El pais ${pais} no esta en el array`);
+    } else{
+        array.splice(posicion,1);
+        document.write(`El pais ${pais} ha sido eliminado de la posicion ${posicion}`);
+    }
+    }
+    mostrarArray(array);
