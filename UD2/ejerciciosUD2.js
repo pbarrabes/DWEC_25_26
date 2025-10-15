@@ -265,7 +265,7 @@ Función buscarPais. La función nos devuelve la posición de una país, o -1 si
 Función añadirPais. La función nos comprueba si un país que nos pasa el usuario existe y en caso de que no exista lo inserta al final. Si existe lo indica con un mensaje indicando la posición. La función devuelve la posición en la que está el país, o la posición en la que lo ha insertado.
 Función eliminar Pais. La función elimina un país que le pasamos como parámetro. Nos indica la posición en la que lo ha encontrado y borrado. La función devuelve la posición o -1 si no lo ha podido borrar. El array no debe quedar con espacios vacíos tras la eliminación*/
 
-const paises = ["México", "Japón", "Italia", "Australia", "Brasil", "Canadá", "Francia", "Alemania", "India", "Argentina", "España", "China", "Sudáfrica", "Rusia", "Corea del Sur", "Reino Unido", "Estados Unidos", "Indonesia", "Egipto", "Turquía"];
+/* const paises = ["México", "Japón", "Italia", "Australia", "Brasil", "Canadá", "Francia", "Alemania", "India", "Argentina", "España", "China", "Sudáfrica", "Rusia", "Corea del Sur", "Reino Unido", "Estados Unidos", "Indonesia", "Egipto", "Turquía"];
 function mostrarArray(array){
 
     document.write(`<p>El array  tiene ${array.length} elementos</p><ol>`);
@@ -307,4 +307,173 @@ function añadirPais(array){
         document.write(`El pais ${pais} ha sido eliminado de la posicion ${posicion}`);
     }
     }
-    mostrarArray(array);
+    mostrarArray(array); */
+
+
+    /* 27 Define una función a la que le pasaremos un número y el tipo de redondeo a realizar. La función devolverá el resultado del redondeo 
+y además mostrará el valor del redondeo en el documento junto a un mensaje indicando el tipo de redondeo.  */
+ function redondeo(numero,tipo){
+    if(isNaN(numero)){
+        document.write(`<p>El valor ${numero} no es un numero</p>`);
+        return
+    }else {
+    let redondeo;
+    numero=parseFloat(numero);
+    switch (tipo) {
+        case "arriba":
+            redondeo=Math.ceil(numero);
+            break;
+        case "abajo":
+            redondeo=Math.floor(numero);
+            break;
+        case "normal":
+            redondeo=Math.round(numero);
+            break;
+        default:
+            redondeo="Tipo de redondeo no valido";
+            break;
+    }
+    document.write(`<p>El redondeo de ${numero} es ${redondeo} con el tipo de redondeo ${tipo}</p>`);
+    return redondeo;
+    }
+}
+//ejemplos de uso
+// redondeo(3.3,"arriba");
+// redondeo(-2.5,"normal");
+let numero1=(prompt("Dime un numero"));
+let tipoRedondeo=prompt("Dime un tipo de redondeo");//Lo pregunta igual a pesar de que no sea corecto el numero.
+redondeo(numero1, tipoRedondeo);  
+
+/* 28  Define una función a la que le pasaremos dos enteros (limite inferior y límite superior) 
+y la función nos devolverá una entero aleatorio en el rango [limiteInferior,limiteSuperior).
+     Además mostrará en el documento un mensaje indicando el número aleatorio y el rango en el que se encuentra.*/
+/* 
+function numeroAleatorio(limiteInferior,limiteSuperior){
+    let numero=Math.floor(Math.random()*(limiteSuperior-limiteInferior+1)+limiteInferior);
+    document.write(`<p>El numero aleatorio entre ${limiteInferior} y ${limiteSuperior} es ${numero}</p>`);
+    return numero;
+}     
+
+let limiteInferior=parseInt(prompt("Dime un limite inferior (incluido)"));
+let limiteSuperior=parseInt(prompt("Dime un limite superior (El limite superior no incluido)"));
+numeroAleatorio(limiteInferior, limiteSuperior);  */
+
+
+/*  29  Define una función a la que le pasaremos un ángulo y 
+la función trigonométrica a aplicar y nos devolverá el resultado de aplicar la función trigonométrica  y mostrará en el documento la operación aplicada con el resultado.*/
+
+/* function trigonometrica(angulo,funcion){
+    switch (funcion) {
+        case "sin":
+            document.write(`<p>El seno de ${angulo} es ${Math.sin(angulo*Math.PI/180)}</p>`);//angulo hay que psarlo a radianes
+            break;
+        case "cos":
+            document.write(`<p>El coseno de ${angulo} es ${Math.cos(angulo*Math.PI/180)}</p>`);
+            break;
+        case "tan":
+            document.write(`<p>La tangente de ${angulo} es ${Math.tan(angulo*Math.PI/180)}</p>`);
+            break;
+    }
+}  */
+/* let angulo=parseInt(prompt("Dime un angulo en grados"));
+let funcion=prompt("Dime una funcion trigonometrica (sin, cos, tan)");
+trigonometrica(angulo,funcion); */
+
+/* 30 Define una función que muestre la fecha actual en diferentes formatos
+5/10/2021
+Wed Oct 06 2021.
+Wed, 06 Oct 2021 15:54:47 GMT
+ */
+
+/* function fechaActual(){
+    let fecha=new Date();
+    document.write(`<p>${fecha.toLocaleDateString()}</p>`);
+    document.write(`<p>${fecha.toDateString()}</p>`);
+    document.write(`<p>${fecha.toUTCString()}</p>`);
+}
+fechaActual();  */
+
+/* 31 Define una función que muestre la hora actual en diferentes formatos
+14:35:07 (hora detallada con minutos y segundos)
+02:35 PM o 02:35 AM (hora con minutos y AM o PM según sea antes o después del medio día). */
+
+/* function horaActual(){
+    let fecha=new Date();
+    document.write(`<p>${fecha.toLocaleTimeString()}</p>`);
+    document.write(`<p>${fecha.toLocaleTimeString("en-US")}</p>`); // De esta forma nos muestra directamente PM o AM. HAy otras formas de hacerlo.
+}
+horaActual();  */
+
+ /* 32 Define una función que muestre el número de días que  quedan desde hoy hasta el fin de curso (el 23 de junio). */
+ /* function diasHastaFinDeCurso(){
+    let fechaActual=new Date();
+    let fechaFinDeCurso=new Date(2025,5,23);
+    let dias=(fechaFinDeCurso-fechaActual)/(1000*60*60*24);
+    document.write(`<p>Quedan ${Math.floor(dias)} dias hasta el fin de curso</p>`);
+}
+diasHastaFinDeCurso(); */
+/* 33 Crea un programa que pida por parámetro tu cumpleaños (no hace falta el año) 
+y saque todos los años en que tu cumpleaños va a caer en domingo desde este año hasta el año 2100.
+ Por ejemplo, introducir el 05/23 para el día 23 de mayo. */
+
+ /* 
+ let cumpleaños=prompt("Dime tu fecha de cumpleaños en formato mm/dd");
+ const fechaCumpleaños = new Date(`"2025/${cumpleaños}"`);
+ //console.log(fechaCumpleaños.toDateString());
+ for(let i=2025;i<=2100;i++){
+     if(fechaCumpleaños.getDay()==0){
+         document.write(`<p>El dia ${fechaCumpleaños.toLocaleDateString()} es domingo</p>`);
+     }
+     fechaCumpleaños.setFullYear(i+1);
+ }  */
+
+      /*  34 Escribe una función para mostrar el día de la semana en formato corto: 
+ ‘MO’, ‘TU’, ‘WE’, ‘TH’, ‘FR’, ‘SA’, ‘SU’. */
+
+ // Otraopcion es usar un Array y el indice.
+
+/*  function diaSemanaCorto(){
+    let fecha=new Date();
+    switch (fecha.getDay()) {
+        case 0:
+            document.write(`<p>SU</p>`);
+            break;
+        case 1:
+            document.write(`<p>MO</p>`);
+            break;
+        case 2:
+            document.write(`<p>TU</p>`);
+            break;
+        case 3:
+            document.write(`<p>WE</p>`);
+            break;
+        case 4:
+            document.write(`<p>TH</p>`);
+            break;
+        case 5:
+            document.write(`<p>FR</p>`);
+            break;
+        case 6:
+            document.write(`<p>SA</p>`);
+            break;
+        default:
+            break;
+    }
+ }
+    diaSemanaCorto(); */
+
+    /* 35 Escribe una función que devuelva el último día del mes dado para un año dado. 
+A veces es 30, 31 o incluso 28/29 para febrero. */
+/* function ultimoDiaMes(mes,anio){
+    let fecha=new Date(anio,mes,0);// EL TRUCO ESTA EN QUE AL PONER 0 LA FECHA QUE TOMA ES EL ULTIMO DIA DEL MES ANTERIOR, PERO COMO LOS MESES LOS EMPIZA EN 0  , TACHAN
+    document.write(`<p>El ultimo dia del mes ${mes} del año ${anio} es ${fecha.getDate()}</p>`);
+}
+ultimoDiaMes(2,2020); */
+
+/* 36 Escribe una función que devuelva la cantidad de segundos transcurridos 
+desde el comienzo del día. */
+/* function segundosTranscurridos(){
+    let fecha=new Date();
+    document.write(`<p>Desde el comienzo del dia han pasado ${fecha.getHours()*3600+fecha.getMinutes()*60+fecha.getSeconds()} segundos</p>`);
+}
+segundosTranscurridos(); */
