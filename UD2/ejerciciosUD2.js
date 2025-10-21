@@ -124,12 +124,12 @@ do {
 
  */
 
-
+/* 
     let numero= parseInt(prompt("Dime un numero"));
     for (let i = 0; i <= 10;i++){
         document.write(`<p>${numero} por ${i} = ${numero * i}</p>`);
     } 
-
+ */
         /* 16 y 17 Crea un programa que sea un “pequeño traductor” de nombres de frutas. 
 A partir de una lista de 5 Frutas en español (“Pera”, “Manzana”,”Piña”,”Fresa”,”Naranja”) 
 el programa pedirá al usuario el nombre de una fruta, en el caso de que corresponda al listado le mostrará en un cuadro de diálogo la traducción al Inglés. 
@@ -142,7 +142,7 @@ Comenta el código con los comentarios que estimes necesarios.
 // Esta solucion muestra como incluir varis casos al no poner el break en cada case.
 // Otras opciones para el 17 pasarian por pasar fruta a minusculas. En la linea de abajo se muestra con el metodo que tiene en cuenta la localizacion. 
 //let fruta = prompt("Dime un nombre de fruta").toLowerCase() ; 
-let fruta=prompt("Dime un nombre de fruta");
+/* let fruta=prompt("Dime un nombre de fruta");
 
 switch (fruta) {
     case "Pera":
@@ -158,7 +158,7 @@ switch (fruta) {
     default:
         alert(`No se como se dice ${fruta} en ingles`);
         break;
-} 
+}  */
 
 /* 20 Escribe tres funciones suma que acepte un número indeterminado de argumentos y devuelva la suma de todos ellos. 
 Debes evitar que la función devuelva “undefined” si no se le pasa ningún argumento, en cuyo caso el valor que devuelva tiene que ser 0. 
@@ -240,8 +240,8 @@ let numPares=array.reduce(buscarPares);    */
 // Debajo lo mismo pero menos compacto.
 
 /*  24 Encuentra la palabra más larga en un array de palabras. */
-
-const palabras=["hola","perro","caracola","jes"];
+/* 
+const palabras=["hola","perro","caracola","jes"]; */
 //Ahora si otra vez abusando del reduce
 
 /* let palabraMaslarga=palabras.reduce(
@@ -250,10 +250,10 @@ document.write(palabraMaslarga); */
 
 /* 25  Elimina los elementos duplicados de un array. (Usa la estructura Set como ayuda)*/
 
-const array=["perro","gato","caballo","perro","caballo"];
+/* const array=["perro","gato","caballo","perro","caballo"];
 const arrayAset= new Set(array);
 const arraySinDuplicados= Array.from(arrayAset);
-console.log(arraySinDuplicados);
+console.log(arraySinDuplicados); */
 
 /* 26 Usando el siguiente array que contiene una lista de nombres de países vamos a crear una serie de funciones para realizar diferentes operaciones sobre ese array. 
 const paises = ["México", "Japón", "Italia", "Australia", "Brasil", "Canadá", "Francia", "Alemania", "India", "Argentina", "España", "China", "Sudáfrica", "Rusia", "Corea del Sur", "Reino Unido", "Estados Unidos", "Indonesia", "Egipto", "Turquía"];
@@ -312,7 +312,7 @@ function añadirPais(array){
 
     /* 27 Define una función a la que le pasaremos un número y el tipo de redondeo a realizar. La función devolverá el resultado del redondeo 
 y además mostrará el valor del redondeo en el documento junto a un mensaje indicando el tipo de redondeo.  */
- function redondeo(numero,tipo){
+/*  function redondeo(numero,tipo){
     if(isNaN(numero)){
         document.write(`<p>El valor ${numero} no es un numero</p>`);
         return
@@ -336,13 +336,13 @@ y además mostrará el valor del redondeo en el documento junto a un mensaje ind
     document.write(`<p>El redondeo de ${numero} es ${redondeo} con el tipo de redondeo ${tipo}</p>`);
     return redondeo;
     }
-}
+} */
 //ejemplos de uso
 // redondeo(3.3,"arriba");
 // redondeo(-2.5,"normal");
-let numero1=(prompt("Dime un numero"));
+/* let numero1=(prompt("Dime un numero"));
 let tipoRedondeo=prompt("Dime un tipo de redondeo");//Lo pregunta igual a pesar de que no sea corecto el numero.
-redondeo(numero1, tipoRedondeo);  
+redondeo(numero1, tipoRedondeo);   */
 
 /* 28  Define una función a la que le pasaremos dos enteros (limite inferior y límite superior) 
 y la función nos devolverá una entero aleatorio en el rango [limiteInferior,limiteSuperior).
@@ -477,3 +477,117 @@ desde el comienzo del día. */
     document.write(`<p>Desde el comienzo del dia han pasado ${fecha.getHours()*3600+fecha.getMinutes()*60+fecha.getSeconds()} segundos</p>`);
 }
 segundosTranscurridos(); */
+
+/* 38 Crea un programa que muestre en el documento HTML la siguiente información:
+Alto y ancho interno y externo de la ventana actual
+Nombre y versión del navegador.
+Comprobar si las cookies están habilitadas
+Muestra la URL actual.
+Muestra la profundidad de color de la pantalla  y la resolución. */
+
+/* function mostrarInfoNavegador(){
+    document.write(`<p>Alto interno de la ventana: ${window.innerHeight}</p>`);
+    document.write(`<p>Ancho interno de la ventana: ${window.innerWidth}</p>`);
+    document.write(`<p>Alto externo de la ventana: ${window.outerHeight}</p>`);
+    document.write(`<p>Ancho externo de la ventana: ${window.outerWidth}</p>`);
+    document.write(`<p>Nombre del navegador: ${navigator.appName}</p>`);
+    document.write(`<p>Versión del navegador: ${navigator.appVersion}</p>`);
+    document.write(`<p>Cookies habilitadas: ${navigator.cookieEnabled}</p>`);
+    document.write(`<p>URL actual: ${window.location.href}</p>`);
+    document.write(`<p>Profundidad de color de la pantalla: ${screen.colorDepth}</p>`);
+    document.write(`<p>Resolución de la pantalla: ${screen.width} x ${screen.height}</p>`);
+}
+mostrarInfoNavegador(); */
+/* setTimeout(()=>window.location.href="http://www.google.com",3000); */
+
+/* 39 Crea un programa que pida al usuario una URL, y con este dato abrir  otra ventana con esta URL 
+y de ancho y alto la mitad de la ventana actual. */
+/* function abrirVentana(){
+    let url=prompt("Dime una URL");
+    let ancho=window.innerWidth/2;
+    let alto=window.innerHeight/2;
+    window.open(url,"","width="+ancho+",height="+alto);
+} 
+ abrirVentana();  */
+
+ /* 40 Crea un programa que vaya mostrando en un documento HTML la hora, debe actualizarse cada segundo. 
+El Mensaje que muestre debe ser con  el siguiente formato: “Son las 09:25:03 horas PM” es decir debe mostrar la hora en formato 12 Horas (AM/PM). Ayuda , 
+debes usar alguno de los métodos globales del objeto window que nos permite diferir la ejecución de una tarea. */
+
+/* function mostrarHora(){
+    let fecha=new Date();
+    let horas=fecha.getHours();
+    let minutos=fecha.getMinutes();
+    let segundos=fecha.getSeconds();
+    let ampm="AM";
+    if(horas>=12){
+        ampm="PM";
+        if(horas>12){
+            horas-=12;
+        }
+    }
+    if(horas<10){
+        horas="0"+horas;
+    }
+    if(minutos<10){
+        minutos="0"+minutos;
+    }
+    if(segundos<10){
+        segundos="0"+segundos;
+    }
+    document.body.innerHTML=`<h3>Son las ${horas}:${minutos}:${segundos} horas ${ampm}</h3>`;
+}
+setInterval(mostrarHora,1000);  */
+
+/*  41 Crea un programa que pida el nombre a usuario la primera vez que visita el documento, si ya la ha visitado que le muestre un mensaje “Hola nombreUsuario, otra vez por aquí”. 
+ Si no la ha visitado que le de la bienvenida y almacene su nombre en la cookie. Utiliza una cookie “usuario”.La fecha de expiración de la cookie es de un año o 365 días. */
+ // Meto como ayuda  las funciones get y set  de w3cschools para gestion de cookies
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  } 
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+function pedirNombre() {
+    let nombre = getCookie("usuario");
+    if (nombre === "") {
+        nombre = prompt("¿Cuál es tu nombre?");
+        setCookie("usuario", nombre, 365);
+        alert(`Bienvenido, ${nombre}!`);
+    } else {
+        alert(`Hola ${nombre}, otra vez por aquí!`);
+    }
+}
+
+pedirNombre(); 
+
+// version con Local storage
+
+ function pedirNombreLS() {
+    let nombre = localStorage.getItem("usuario");
+    if (nombre === null) {
+        nombre = prompt("¿Cuál es tu nombre?");
+        localStorage.setItem("usuario", nombre);
+        alert(`Bienvenido, ${nombre}!`);
+    } else {
+        alert(`Hola ${nombre}, otra vez por aquí!`);
+    }
+}
+pedirNombreLS(); 
